@@ -3,9 +3,7 @@ var jsdomify = require('jsdomify');
 
 jsdomify.create();
 
-var System = require('systemjs');
-System.config({ baseURL: 'file://' + process.cwd() + '/app' });
-require('../app/config');
+var System = require('jspm').Loader();
 
 it('should load jquery', function () {
   return System.import('jquery').then(function ($) {
